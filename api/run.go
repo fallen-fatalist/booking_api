@@ -42,6 +42,6 @@ func Run() {
 	mux.Handle("/api/v1/bookings/pending", http.HandlerFunc(PendingBookings))
 	mux.Handle("/api/v1/bookings/finished", http.HandlerFunc(FinishedBookings))
 
-	slog.Info("Starting server on: 8080 port")
+	slog.Info("Starting server on: " + port + " port")
 	http.ListenAndServe(fmt.Sprintf(":%s", port), mux)
 }
