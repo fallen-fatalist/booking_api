@@ -18,7 +18,7 @@ var (
 	dbPort     string = os.Getenv("DB_PORT")
 	db         *sql.DB
 	err        error
-	port       string = os.Getenv("PORT")
+	port       string
 )
 
 func Run() {
@@ -29,6 +29,7 @@ func Run() {
 		log.Fatal(err)
 	}
 
+	port = os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
