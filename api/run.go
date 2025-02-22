@@ -31,7 +31,7 @@ func Run() {
 	mux := http.NewServeMux()
 	mux.Handle("/api/v1/computers/specs", http.HandlerFunc(ComputerSpecs))
 	mux.Handle("/api/v1/computers/statuses", http.HandlerFunc(ComputerStatuses))
-	mux.Handle("/api/v1//users", http.HandlerFunc(Users))
+	mux.Handle("/api/v1/users", http.HandlerFunc(Users))
 	mux.Handle("/api/v1/packages", http.HandlerFunc(Packages))
 	mux.Handle("/api/v1/bookings/pending", http.HandlerFunc(PendingBookings))
 	mux.Handle("/api/v1/bookings/finished", http.HandlerFunc(FinishedBookings))

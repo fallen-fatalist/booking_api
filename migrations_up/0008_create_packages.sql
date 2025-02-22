@@ -4,4 +4,4 @@ CREATE TABLE packages (
     startTime TIME,
     endTime TIME,
     created_at TIMESTAMP DEFAULT NOW()
-)
+);
