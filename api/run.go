@@ -18,6 +18,7 @@ var (
 	dbPort     string = os.Getenv("DB_PORT")
 	db         *sql.DB
 	err        error
+	port       string = os.Getenv("PORT")
 )
 
 func Run() {
@@ -26,6 +27,10 @@ func Run() {
 	db, err = repository.OpenDB(dsn)
 	if err != nil {
 		log.Fatal(err)
+	}
+
+	if port == "" {
+		port = "8080"
 	}
 
 	mux := http.NewServeMux()
@@ -37,5 +42,5 @@ func Run() {
 	mux.Handle("/api/v1/bookings/finished", http.HandlerFunc(FinishedBookings))
 
 	slog.Info("Starting server on: 8080 port")
-	http.ListenAndServe(":8080", mux)
+	http.ListenAndServe(fmt.Sprintf(":%s", port), mux)
 }
