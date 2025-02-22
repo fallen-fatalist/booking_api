@@ -1,4 +1,4 @@
-APP_NAME=snippetbox
+APP_NAME=booking-service
 PORT=8080
 
 run:

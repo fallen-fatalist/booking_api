@@ -9,6 +9,7 @@ CREATE TABLE computers_specs (
     keyboard VARCHAR(50) NOT NULL,
     headset VARCHAR(50) NOT NULL,
     mouse VARCHAR(50) NOT NULL,
+    -- TODO: Add mousepad
     created_at TIMESTAMP DEFAULT NOW()
 );
 
