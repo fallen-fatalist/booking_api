@@ -43,6 +43,10 @@ func Run() {
 	mux.Handle("/api/v1/bookings/pending", http.HandlerFunc(PendingBookings))
 	mux.Handle("/api/v1/bookings/finished", http.HandlerFunc(FinishedBookings))
 
+	// Middlewares
+	recoveredMux := recoverPanic(mux)
+	loggedMux := requestLogger(recoveredMux)
+
 	slog.Info("Starting server on: " + port + " port")
-	http.ListenAndServe(fmt.Sprintf(":%s", port), mux)
+	http.ListenAndServe(fmt.Sprintf(":%s", port), loggedMux)
 }
