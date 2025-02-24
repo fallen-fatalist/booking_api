@@ -10,6 +10,9 @@ import (
 )
 
 func Hello(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+	}
 	w.Write([]byte("Works"))
 }
 

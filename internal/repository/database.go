@@ -250,7 +250,7 @@ func GetAllUsers(db *sql.DB) ([]entities.User, error) {
 
 func GetAllPendingBookings(db *sql.DB) ([]entities.Booking, error) {
 	query := `
-		SELECT user_id, computer_id, package, start_time, end_time, total_price, status, created_at 
+		SELECT user_id, computer_id, package_name, start_time, end_time, total_price, status, created_at 
 		FROM pending_bookings 
 	`
 
@@ -291,7 +291,7 @@ func GetAllPendingBookings(db *sql.DB) ([]entities.Booking, error) {
 
 func GetAllFinishedBookings(db *sql.DB) ([]entities.Booking, error) {
 	query := `
-		SELECT user_id, computer_id, package, start_time, end_time, total_price, status, created_at 
+		SELECT user_id, computer_id, package_name, start_time, end_time, total_price, status, created_at 
 		FROM finished_bookings 
 	`
 
