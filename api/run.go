@@ -35,6 +35,7 @@ func Run() {
 	}
 
 	mux := http.NewServeMux()
+	mux.Handle("/", http.HandlerFunc(Hello))
 	mux.Handle("/api/v1/computers/specs", http.HandlerFunc(ComputerSpecs))
 	mux.Handle("/api/v1/computers/statuses", http.HandlerFunc(ComputerStatuses))
 	mux.Handle("/api/v1/users", http.HandlerFunc(Users))
